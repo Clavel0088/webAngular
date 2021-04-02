@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid" style='background-color:#b9f1d7;'>
+    <a class="navbar-brand" href="#" style="color:#198754;">Mobile App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/account">Mon compte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/call">Appel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/offer">Offre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/cashin">Depot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/cashout">Retrait</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/login">Deconnexion</a>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+</nav> <div class="container col-md-6 col-lg-6 col-sm-6 p-5 con shadow-lg p-3 mb-5 rounded" style="border-radius: 5px solid; silver;">
+  <h1>Retrait</h1>
+  <div class="column">
+  	<h2>Effectuer un retrait</h2>
+   	<div class="form-group">
+          <label for="name">Montant</label>
+          <input
+            type="number"
+            class="form-control"
+            id="montant" 
+            required
+            name="montant"
+            ng-value="100"
+             [(ngModel)]="transaction.montant"
+          />
+           <label for="code">Code secret</label>
+          <input
+            type="password"
+            class="form-control"
+            id="codeSecret"
+            required
+            name="codeSecret"
+            ng-value=""
+            [(ngModel)]="this.codeSecret"
+          />
+            <div class="p-2 col-md-12 col-lg-12 col-sm-12">
+              <button (click)="validateCashOut()" class="btn btn-success">Valider</button>
+             </div>
+      </div>
+      <br/>
+       <label for="code" style='color:red'>{{message}}</label>
+      <br/>
+       <div>
+      <h2>Historique</h2>
+      <mat-table *ngIf="transactions" [dataSource]="transactions">
+        <!-- User name Definition -->
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.dateTransaction}}</mat-cell>
+        </ng-container>
+
+        <!-- Age Definition -->
+        <ng-container matColumnDef="montant">
+          <mat-header-cell *matHeaderCellDef> Montant </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.montant}} Ar</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="fee">
+          <mat-header-cell *matHeaderCellDef> Frais </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.frais}} Ar</mat-cell>
+        </ng-container>
+
+        
+        <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+  </div>

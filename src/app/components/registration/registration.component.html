@@ -1,0 +1,98 @@
+<!doctype html><html lang="en">
+<head>  
+<meta charset="utf-8">  
+<title>Inscription</title>   
+
+
+</head>
+<body>   
+
+
+<div>
+   <div class="content" role="main">
+    <h1>Inscription</h1>
+    <label for="message" style="color: red">{{message}}</label>
+  <div class="card-container">
+  
+  <div class="submit-form">
+      <div class="form-group p-2 col-md-12 col-lg-12 col-sm-12">
+        <label for="name">Name</label>
+        <input
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="user.nom"
+          name="nom"
+        />
+      </div>
+      <div class="form-group p-2 col-md-12 col-lg-12 col-sm-12">
+        <label for="name">Identifiant</label>
+        <input
+          class="form-control"
+          id="login"
+          required
+          [(ngModel)]="user.login"
+          name="login"
+        />
+      </div>
+      <div class="form-group p-2 col-md-12 col-lg-12 col-sm-12">
+        <label for="name">Mot de passe</label>
+        <input
+          class="form-control"
+          id="password"
+          required
+          [(ngModel)]="user.mdp"
+          name="mdp"
+          type="password"
+        />
+      </div>
+
+       <!--div class="form-group">
+        <label for="name">Opérateur</label>
+        
+        <input
+          type="radio"
+          class="form-control"
+          id="telma"
+          required
+          [(ngModel)]="this.user.operateur.id"
+          name="operateur"
+          value="1"
+        />
+        <label for="telma">Telma</label>
+
+        
+         <input
+          type="radio"
+          class="form-control"
+          id="airtel"
+          required
+          [(ngModel)]="this.user.operateur.id"
+          name="operateur"
+          value="2"
+        />
+        <label for="airtel">Airtel</label>
+        
+         <input
+          type="radio"
+          class="form-control"
+          id="orange"
+          required
+          [(ngModel)]="this.user.operateur.id"
+          name="operateur"
+          value="3"
+        />
+        <label for="orange">Orange</label>
+      </div-->
+       <div class="p-2 col-md-12 col-lg-12 col-sm-12">
+          <button (click)="register()" class="btn btn-success">Inscription</button>
+        </div>
+ 
+      
+
+ </div><a class="nav-link" routerLink="/login">Se connecter</a> </div>
+  </div>
+</div>
+
+</body>
+</html>
